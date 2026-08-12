@@ -29,7 +29,6 @@
                 }
             }
         }
-    var_dump($classeId, $matiereId, $periodeId, $moyenneClasse);
         require_once dirname(__DIR__).'/view/notes.html.php';
     }
 

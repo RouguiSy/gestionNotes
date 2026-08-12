@@ -366,7 +366,7 @@
               <td><?php echo $eleve['devoir2']; ?></td>
               <td><?php echo $eleve['composition']; ?></td>
               <td><?php echo $eleve['moyenne']; ?></td>
-              <td>-</td>
+              <td><?php echo $eleve['appreciation']; ?></td>
           </tr>
           <?php endforeach; ?>
           <?php endif; ?>
