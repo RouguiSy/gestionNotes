@@ -26,9 +26,18 @@ function prepareExecute(PDO $pdo, string $sql, array $data = []) : PDOStatement 
     return $prepare;
 }
 
+// function executeQuery(PDO $pdo, string $sql, array $data = [], bool $single = false) : array {
+//     $statement = prepareExecute($pdo, $sql, $data);
+//     return $single ? $statement->fetch() : $statement->fetchAll();
+// }
+
 function executeQuery(PDO $pdo, string $sql, array $data = [], bool $single = false) : array {
     $statement = prepareExecute($pdo, $sql, $data);
-    return $single ? $statement->fetch() : $statement->fetchAll();
+    if ($single) {
+        $result = $statement->fetch();
+        return $result === false ? [] : $result;
+    }
+    return $statement->fetchAll();
 }
 
 function executeUpdate(PDO $pdo, string $sql, array $data = []) : int {

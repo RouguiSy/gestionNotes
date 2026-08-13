@@ -3,6 +3,7 @@
     $periodes =  $periodes ?? [];
     $classes = $classes ?? [];
     $eleves = $eleves ?? [];
+    $anneeActive = $anneeActive ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -241,7 +242,7 @@
 <header class="topbar">
   <div class="brand">GROUPE SCOLAIRE AL AMAL</div>
   <div class="top-right">
-    <div class="year-pill"><span class="dot"></span>2025–2026</div>
+    <div class="year-pill"><span class="dot"></span><?php echo $anneeActive; ?></div>
     <button class="icon-btn" aria-label="Notifications">
       <span class="badge-dot"></span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -333,6 +334,9 @@
       <div class="stat-value"><?php echo $moyenneClasse; ?><span>/20</span></div>
     </div>
   </form>
+    <?php if ($erreurMatiere) : ?>
+      <p style="color:#A83232;font-weight:600;margin-top:16px;">Cette matière n'existe pas pour la classe sélectionnée.</p>
+    <?php endif; ?>
 
   <div class="table-card">
     <table>

@@ -12,6 +12,7 @@
         $periodeId = 0;
         $moyenneClasse = 0;
         $erreurMatiere = false;
+        $anneeActive = getAnneeActive();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $classeId = (int)($_POST['classe'] ?? 0);

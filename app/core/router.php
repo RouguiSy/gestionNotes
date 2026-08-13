@@ -1,8 +1,8 @@
 <?php
 $routes = [
     '/' => [
-        'controller' => 'eleveController',
-        'action' => 'afficherNotes'
+        'controller' => 'authController',
+        'action' => 'login'
     ],
     '/notes/saisie' => [
         'controller' => 'eleveController',

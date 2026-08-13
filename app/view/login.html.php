@@ -1,3 +1,4 @@
+<?php $erreurConnexion = $erreurConnexion ?? false; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -488,6 +489,9 @@
     <div class="eyebrow">RAVI DE VOUS REVOIR</div>
     <h1 class="title">Connexion à DiangÉcole</h1>
     <p class="subtitle">Choisissez un profil de démonstration ou saisissez vos identifiants.</p>
+    <?php if ($erreurConnexion) : ?>
+      <p style="color:#A83232;font-weight:600;margin-top:12px;">Email ou mot de passe incorrect.</p>
+    <?php endif; ?>
 
     <div class="profile-grid">
       <button class="profile-card" type="button">
@@ -549,14 +553,14 @@
 
     <div class="divider">ou avec vos identifiants</div>
 
-    <form onsubmit="return false;">
+    <form method="POST" action="/login">
       <label class="field-label" for="email">Adresse email</label>
       <div class="input-wrap">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
-        <input type="email" id="email" placeholder="vous@etablissement.sn">
+        <input type="email" id="email" name="email" placeholder="vous@etablissement.sn">
       </div>
 
       <div class="row-between">
@@ -567,7 +571,7 @@
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 2L4 5v6c0 5.5 3.4 9.7 8 11 4.6-1.3 8-5.5 8-11V5l-8-3z"></path>
         </svg>
-        <input type="password" id="password" placeholder="Votre mot de passe">
+        <input type="password" id="password" name="password" placeholder="Votre mot de passe">
         <svg class="icon eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
           <circle cx="12" cy="12" r="3"></circle>
